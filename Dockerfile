@@ -4,10 +4,9 @@ MAINTAINER Harrison Powers, harrisonpowers@gmail.com
 
 RUN npm i -g pm2
 
-# Deps for certificate TODO letsencrypt
-RUN apt-get update && apt-get install -qq -y curl python-pip libpython-dev libnss3-tools \
-  && curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py \
-  && pip install -q awscli --upgrade
+RUN echo "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list \
+ && apt-get update \
+ && apt-get install -y certbot -t jessie-backports
 
 ADD . /root/
 

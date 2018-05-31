@@ -1,16 +1,15 @@
 const fs = require('fs');
-const path = require('path');
 const httpProxy = require('http-proxy');
 
 const proxy = httpProxy.createProxyServer({
   target: {
     protocol: 'https:',
-    host: 'fullstory.com',
+    host: process.env.PROXY_TARGET || 'fullstory.com',
     port: 443
   },
   ssl: {
-    key: fs.readFileSync(path.join(__dirname,'cert/ssl.key')),
-    cert: fs.readFileSync(path.join(__dirname,'cert/ssl.crt'))
+    key: fs.readFileSync(`/etc/letsencrypt/live/${process.env.PROXY_DOMAIN}/privkey.pem`),
+    cert: fs.readFileSync(`/etc/letsencrypt/live/${process.env.PROXY_DOMAIN}/fullchain.pem`)
   },
   changeOrigin: true
 });

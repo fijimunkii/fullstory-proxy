@@ -7,11 +7,9 @@ set -o pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mkdir -p $DIR/cert
 
-certbot certonly \
-  --dns-route53 \
-  -w "$DIR/cert" \
-  -d "fullstory-proxy.$PROXY_DOMAIN" \
-  -d "*.fullstory-proxy.$PROXY_DOMAIN"
+certbot certonly --standalone -n --agree-tos \
+  --email "$CERT_EMAIL" \
+  -d "$PROXY_DOMAIN"
 
 certbot renew --dry-run
 

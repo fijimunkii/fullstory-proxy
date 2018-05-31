@@ -2,4 +2,6 @@
 
 Allows the use of fullstory when it's normally blocked
 
-`docker run -p 443:5555 -e PROXY_DOMAIN=myapp.com -e S3_BUCKET=encrypted-please fijimunkii/fullstory-proxy:latest`
+Note: needs two instances for now
+`docker run -p 443:5555 -e PROXY_DOMAIN=fullstory-proxy.myapp.com -e S3_BUCKET=encrypted-please fijimunkii/fullstory-proxy:latest`
+`docker run -p 443:5555 -e PROXY_DOMAIN=rs.fullstory-proxy.myapp.com -e PROXY_TARGET=rs.fullstory.com -e S3_BUCKET=encrypted-please fijimunkii/fullstory-proxy:latest`

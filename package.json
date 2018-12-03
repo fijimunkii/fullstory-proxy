@@ -1,0 +1,29 @@
+{
+  "name": "fullstory-proxy",
+  "version": "1.0.0",
+  "description": "fullstory proxy",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fijimunkii/fullstory-proxy.git"
+  },
+  "author": "Harrison Powers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fijimunkii/fullstory-proxy/issues"
+  },
+  "homepage": "https://github.com/fijimunkii/fullstory-proxy#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "etl": "^0.5.13",
+    "express": "^4.16.4",
+    "hpp": "^0.2.2",
+    "http-proxy-middleware": "^0.19.1"
+  }
+}
